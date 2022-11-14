@@ -15,6 +15,23 @@ const App = () => {
     "?"
   ])
 
+  const [timer, setTimer] = useState(5)
+
+  const timerFunction = (index) =>{
+    //alert(index)
+    if
+      (index===treasureLocation){
+      return setTimer("You win!")
+      
+    } else if
+      (index===bombLocation){
+      return setTimer("You lose!")
+    } else {
+      return(setTimer(timer - 1)) 
+      
+    }
+  }
+
   const [treasureLocation, 
   setTreasureLocation] = useState(Math.floor(
   Math.random()*board.length))
@@ -36,7 +53,7 @@ const App = () => {
       setBoard(updatedBoard)
     } else 
       {updatedBoard[index] = "😥"
-      setBoard(updatedBoard)
+      setBoard(updatedBoard); 
     }
   }
   const reset = () =>{
@@ -66,10 +83,12 @@ const App = () => {
               key={index} 
               index={index}
               handleGamePlay={handleGamePlay}
+              timerFunction={timerFunction}
               />
           )
         })}
       </div>
+      <h2>{timer} moves left</h2>
       <button onClick={reset}>Play again</button>
     </>
   )
