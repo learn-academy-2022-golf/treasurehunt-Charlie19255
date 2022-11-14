@@ -39,11 +39,26 @@ const App = () => {
       setBoard(updatedBoard)
     }
   }
+  const reset = () =>{
+    let initialState = [
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?"
+    ]
+  return setBoard(initialState)
+  }
 
   return (
     <>
       <h1>Treasure Hunt Game</h1>
       <div className="gameboard">
+      
         {board.map((value, index)=>{
           return( 
             <Square 
@@ -55,6 +70,7 @@ const App = () => {
           )
         })}
       </div>
+      <button onClick={reset}>Play again</button>
     </>
   )
 }
